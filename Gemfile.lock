@@ -149,6 +149,8 @@ GEM
       bundler
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
+    simple_calendar (2.2.7)
+      rails (>= 3.0)
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -204,6 +206,7 @@ DEPENDENCIES
   rails (= 5.1.5)
   redis
   sass-rails
+  simple_calendar (~> 2.0)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)

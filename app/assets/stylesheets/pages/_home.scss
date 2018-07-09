@@ -17,7 +17,7 @@ body {
   // grid-template-columns: 1fr;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
   .wrapper {
     padding-top: 10px;
     grid-template-columns: repeat(6, 1fr);
@@ -98,7 +98,7 @@ body {
 }
 
 .banner-bigtext {
-  font-size: 45px;
+  font-size: 40px;
   font-family: $arusfont2;
   color: $arus4;
 }

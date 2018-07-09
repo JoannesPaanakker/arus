@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :appartment, :boat, :bookings]
+  skip_before_action :authenticate_user!, only: [:home, :appartment, :boat]
 
   def home
     @page = "home"
@@ -12,9 +12,4 @@ class PagesController < ApplicationController
   def boat
     @page = "boat"
   end
-
-  def bookings
-    @page = "bookings"
-  end
-
 end

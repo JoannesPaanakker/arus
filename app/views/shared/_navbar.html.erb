@@ -1,44 +1,62 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "favicon.ico", height: 50 %>
+  <%= link_to root_path, class: "mybutton logo" do %>
+    <i class="fas fa-home"></i>
   <% end %>
-
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-      <%= link_to "Appartment", appartment_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Boat", boat_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "arys-open-haard.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "bookings" do %>
-                <i class="far fa-calendar-alt"></i> Bookings
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fas fa-info-circle"></i>  Contact
-              <% end %>
-            </li>
-          </ul>
-        </div>
+  <div class="navbar-wagon-right hidden-xs">
+    <% if user_signed_in? %>
+      <div class="mybutton">
+        <%= link_to "Sign out", destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete %>
       </div>
-
+    <% end %>
+    <% if @page != "appartment" %>
+      <div class="mybutton">
+        <%= link_to "Studio", appartment_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+    <% end %>
+    <% if @page != "boat" %>
+      <div class="mybutton">
+        <%= link_to "Boat", boat_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+    <% end %>
+    <% if @page != "bookings" %>
+      <div class="mybutton">
+        <%= link_to "Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+    <% end %>
+    <% if @page != "contact" %>
+      <div class="mybutton">
+        <%= link_to "Contact", contact_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+    <% end %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="navbar-wagon-item hidden-sm hidden-md hidden-lg">
     <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <i class="fa fa-bars dropdown-toggle mybutton logo" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><%= link_to "Appartment", appartment_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
-        <li><%= link_to "Boat", boat_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
-        <li><%= link_to "Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li>
+          <%= link_to appartment_path do %>
+            <i class="fas fa-info-circle"></i> Studio
+          <% end %>
+          </li>
+        <li>
+          <%= link_to boat_path do%>
+            <%= image_tag "stuur.jpg", height: 20 %> Boat
+          <% end %>
+        </li>
+        <li>
+          <%= link_to bookings_path do %>
+            <i class="far fa-calendar-alt"></i> Bookings
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#{}" do %>
+            <i class="fas fa-info-circle"></i>  Contact
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>

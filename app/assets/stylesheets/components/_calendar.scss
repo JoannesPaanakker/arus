@@ -1,5 +1,11 @@
 .simple-calendar {
-  .day {}
+  .day {
+    border: solid;
+    border-width: 2px;
+    border-color: $arus4;
+    background-color: white;
+    max-width: 20px;
+  }
 
   .wday-0 {}
   .wday-1 {}
@@ -9,7 +15,12 @@
   .wday-5 {}
   .wday-6 {}
 
-  .today {}
+  .today {
+    border: solid;
+    border-color: black;
+    border-width: 5px;
+  }
+
   .past {
     background-color: lightgray;
     color: gray;
@@ -17,8 +28,6 @@
   .future {}
 
   .start-date {
-    border: solid;
-    border-color: black;
   }
 
   .prev-month {}
@@ -29,4 +38,12 @@
     background-color: $arus4;
     color: white;
   }
+}
+
+.cal {
+  max-width: 500px;
+  margin: 20px;
+  padding: 10px;
+
+
 }

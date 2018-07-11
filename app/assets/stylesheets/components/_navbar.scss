@@ -12,7 +12,7 @@
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 30px;
+  height: 10px;
 }
 
 /* User Avatar */
@@ -37,11 +37,11 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: $arus4;
+  font-size: 24px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $arus1;
   text-decoration: none;
 }
 
@@ -75,3 +75,18 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.mybutton {
+  color: $arus4;
+  border: solid;
+  border-color: $arus4;
+  border-radius: 8px;
+  margin: 5px;
+}
+.mybutton.logo {
+  padding: 5px;
+}
+
+
+
+

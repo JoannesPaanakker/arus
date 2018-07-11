@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   # GET /bookings.json
   def index
     @bookings = Booking.all
+    @page = "bookings"
   end
 
   # GET /bookings/1

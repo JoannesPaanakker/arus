@@ -15,10 +15,15 @@
   <% end %>
 <p>
   Send a bookingrequest to Margaretha via eMail:
-  <div><a href="mailto:greet.bekkers@icloud.com?subject=Booking Request Amstel river Studio&body=Dear Margeretha,%0D%0AI would like to make a booking request for your studio from DATE to DATE.%0D%0A%0D%0ABest regards,%0D%0A" class="mybutton logo">Booking Request</a></div>
+  <div><a href="mailto:bekkersgreet@hotmail.com?subject=Booking Request Amstel river Studio&body=Dear Margeretha,%0D%0AI would like to make a booking request for your studio from DATE to DATE.%0D%0A%0D%0ABest regards,%0D%0A" class="mybutton logo">Booking Request</a></div>
 </p>
+<br>
+<% if !user_signed_in? %>
+  <div>
+    <%= link_to "Admin", new_user_session_path, class: "mybutton tekst" %>
+  </div>
+<% end %>
 </div>
-
 
 <% if user_signed_in? %>
   <table>
@@ -45,6 +50,6 @@
     </tbody>
   </table>
   <br>
-  <%= link_to 'New Booking', new_booking_path %>
+  <%= link_to 'New Booking', new_booking_path, class: "mybutton tekst" %>
 <% end %>
 

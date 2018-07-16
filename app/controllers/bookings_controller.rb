@@ -27,14 +27,48 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
+    @newbookingstart = @booking.start_time.strftime("%m-%d-%Y")
+    @newbookingend = @booking.end_time.strftime("%m-%d-%Y")
 
-    respond_to do |format|
-      if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @booking }
-      else
-        format.html { render :new }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
+
+    @books = Booking.all
+    @booking_exists = false
+    @bookingstart_in_booked_period = false
+    @bookingend_in_booked_period = false
+    @books.each do |book|
+      @bookstart = book.start_time.strftime("%m-%d-%Y")
+      @bookend = book.end_time.strftime("%m-%d-%Y")
+      if @bookstart == @newbookingstart || @bookend == @newbookingend
+        @booking_exists = true
+      end
+      if @booking.start_time > book.start_time && @booking.start_time < book.end_time
+         @bookingstart_in_booked_period = true
+      end
+      if @booking.end_time > book.start_time && @booking.end_time < book.end_time
+         @bookingend_in_booked_period = true
+      end
+    end
+
+
+
+
+    if @booking.end_time <= @booking.start_time
+      redirect_to new_booking_path, alert: 'End date must be after start date.' 
+    elsif @booking_exists
+      redirect_to new_booking_path, alert: 'Booking with start or end date exists.'
+    elsif @bookingstart_in_booked_period
+      redirect_to new_booking_path, alert: 'Booking start in booked period.'
+    elsif @bookingend_in_booked_period
+      redirect_to new_booking_path, alert: 'Booking end in booked period.'
+    elsif
+      respond_to do |format|
+        if @booking.save
+          format.html { redirect_to bookings_path, notice: 'Booking was successfully created.' }
+          format.json { render :show, status: :created, location: @booking }
+        else
+          format.html { render :new }
+          format.json { render json: @booking.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

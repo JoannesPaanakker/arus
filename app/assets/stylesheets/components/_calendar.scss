@@ -1,8 +1,6 @@
 .simple-calendar {
   .day {
-    border: solid;
-    border-width: 2px;
-    border-color: $arus4;
+    border:2px solid $arus4;
     background-color: white;
     max-width: 20px;
   }
@@ -35,7 +33,18 @@
   .current-month {}
 
   .has-events {
-    background-color: $arus4;
+  }
+
+  .past.has-events {
+    background: image_url("Check.png") center no-repeat;
+    background-size: cover;
+    background-color: lightgray;
+    color: white;
+  }
+  .future.has-events {
+    background: image_url("Check.png") center no-repeat;
+    background-size: cover;
+    background-color: white;
     color: white;
   }
 }
@@ -44,6 +53,17 @@
   max-width: 500px;
   margin: 20px;
   padding: 10px;
+}
 
-
+table.table-bordered{
+    border:2px solid $arus4;
+    margin-top:20px;
+    background-color: white;
+  }
+table.table-bordered > thead > tr > th{
+    border:2px solid $arus4;    
+    background-color: $arus3;
+}
+table.table-bordered > tbody > tr > td{
+    border:2px solid $arus4;
 }

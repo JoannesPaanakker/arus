@@ -33,7 +33,18 @@
   .current-month {}
 
   .has-events {
-    background-color: $arus4;
+  }
+
+  .past.has-events {
+    background: image_url("Check.png") center no-repeat;
+    background-size: cover;
+    background-color: lightgray;
+    color: white;
+  }
+  .future.has-events {
+    background: image_url("Check.png") center no-repeat;
+    background-size: cover;
+    background-color: white;
     color: white;
   }
 }

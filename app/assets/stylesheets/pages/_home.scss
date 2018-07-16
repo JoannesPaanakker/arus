@@ -10,6 +10,10 @@
 
 body {
   background-color: $arus2;
+  position: relative;
+  margin: 0;
+  padding-bottom: 130px;
+  min-height: 100%;
 }
 
 .wrapper {

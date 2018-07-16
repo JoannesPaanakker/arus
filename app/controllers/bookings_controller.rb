@@ -53,7 +53,7 @@ class BookingsController < ApplicationController
 
 
     if @booking.end_time <= @booking.start_time
-      redirect_to new_booking_path, alert: 'End date must be after start date.' 
+      redirect_to new_booking_path, alert: 'End date must be after start date.'
     elsif @booking_exists
       redirect_to new_booking_path, alert: 'Booking with start or end date exists.'
     elsif @bookingstart_in_booked_period
@@ -78,7 +78,7 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+        format.html { redirect_to bookings_path, notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit }

@@ -35,6 +35,16 @@
   .has-events {
   }
 
+  .today.has-events {
+    border: solid;
+    border-color: black;
+    border-width: 5px;
+    background: image_url("Check.png") center no-repeat;
+    background-size: cover;
+    background-color: white;
+    color: white;
+  }
+
   .past.has-events {
     background: image_url("Check.png") center no-repeat;
     background-size: cover;
@@ -61,7 +71,7 @@ table.table-bordered{
     background-color: white;
   }
 table.table-bordered > thead > tr > th{
-    border:2px solid $arus4;    
+    border:2px solid $arus4;
     background-color: $arus3;
 }
 table.table-bordered > tbody > tr > td{

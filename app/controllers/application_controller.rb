@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
     bookings_path
   end
 
+
 end
